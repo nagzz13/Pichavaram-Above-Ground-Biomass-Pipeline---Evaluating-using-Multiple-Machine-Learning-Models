@@ -23,25 +23,6 @@ python step_08_scatter_plots.py               # observed vs predicted plots -> P
   feature→raster name map. **Edit paths here.**
 - `step_01` … `step_08` — one pipeline stage each.
 
-## Changes vs the original scripts (bugs fixed / cleanups)
-
-- **step_02**: the original had a broken `if/else` (an `else:` after an
-  `else:`) so no model was actually trained/saved. Rewritten so every model
-  fits and persists correctly.
-- **step_03**: added the missing `import pandas as pd`; dropped the unused
-  `.h5` Keras branch (pipeline is the four classical models).
-- **Consistent names**: predicted rasters are now `<Model>_AGB.tif`
-  (RandomForest/XGBoost/CatBoost/KNN) in `AGB_Mangroves/`, and every step
-  reads that same convention. The originals mixed `AGB_Outputs/`,
-  `AGB_{model}.tif`, and `RF_AGB.tif`, which broke the hand-off between
-  prediction and validation.
-- **step_04**: ensemble weights are now computed from live per-model RMSE
-  against the field points instead of hard-coded numbers, so they stay
-  correct if you retrain.
-- **step_07 / step_08**: lat/lon are reprojected into each raster's CRS
-  before sampling (the original scatter script sampled raw lat/lon, which
-  fails for projected rasters). `plt.show()` replaced with `Agg` backend so
-  it runs headless.
 
 ## Requirements
 
