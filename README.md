@@ -1,8 +1,7 @@
 # Pichavaram AGB Mapping Pipeline
 
-Your original notebook code, split into ordered, standalone steps. Every
-script imports shared paths and settings from `config.py`, so you only edit
-paths in one place.
+Notebook code, split into ordered, standalone steps. Every
+script imports shared paths and settings from `config.py`
 
 ## Run order
 
